@@ -21,11 +21,12 @@ function EditableTodo({ todo, update, remove }) {
   }
 
   /** Call remove fn passed to this. */
-  function handleDelete() { }
+  function handleDelete() {}
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
     update({ ...formData, id: todo.id });
+    toggleEdit();
   }
 
   function renderTodo() {
@@ -51,11 +52,13 @@ function EditableTodo({ todo, update, remove }) {
   }
 
   return (
-
     <div className="EditableTodo">
-      {isEditing ? <TodoForm handleSave={handleSave} initialFormData={todo} /> : renderTodo()}
+      {isEditing ? (
+        <TodoForm handleSave={handleSave} initialFormData={todo} />
+      ) : (
+        renderTodo()
+      )}
     </div>
-
   );
 }
 
