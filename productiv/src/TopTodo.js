@@ -15,7 +15,7 @@ function TopTodo() {
   // let top = todos.reduce(
   //     (acc, cur) => cur.priority < acc.priority ? cur : acc, todos[0]);
 
-  return <Todo  />;
+  return <Todo />;
 }
 
 export default TopTodo;

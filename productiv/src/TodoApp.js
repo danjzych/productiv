@@ -19,13 +19,15 @@ function TodoApp({ initialTodos }) {
   const [todos, setTodos] = useState(initialTodos);
 
   /** add a new todo to list */
-  function create(newTodo) {}
+  function create(newTodo) { }
 
   /** update a todo with updatedTodo */
-  function update(updatedTodo) {}
+  function update(updatedTodo) {
+    setTodos(todos.map(t => t.id === updatedTodo.id ? updatedTodo : t));
+  }
 
   /** delete a todo by id */
-  function remove(id) {}
+  function remove(id) { }
 
   return (
     <main className="TodoApp">
