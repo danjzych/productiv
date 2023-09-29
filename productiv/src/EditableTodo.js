@@ -15,13 +15,18 @@ import TodoForm from "./TodoForm";
 function EditableTodo({ todo, update, remove }) {
   /** Toggle if this is being edited */
   const [isEditing, setIsEditing] = useState(false);
-
+  /**
+   * Toggle todo to be rendered as editable todo
+   */
+  //TODO: wrap in arrow fn (any state setting fn should be callback)
   function toggleEdit() {
     setIsEditing(!isEditing);
   }
 
   /** Call remove fn passed to this. */
-  function handleDelete() {}
+  function handleDelete() {
+    remove(todo.id);
+  }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
@@ -29,6 +34,9 @@ function EditableTodo({ todo, update, remove }) {
     toggleEdit();
   }
 
+  /**
+   *  Render a todo as normal
+   */
   function renderTodo() {
     return (
       <div className="mb-3">
